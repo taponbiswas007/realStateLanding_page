@@ -647,6 +647,24 @@
             //     this.reset();
             // });
 
+            // Disable right click
+            $(document).bind("contextmenu", function (e) {
+                return false;
+            });
+
+            // Disable text selection
+            $(document).bind("selectstart", function (e) {
+                return false;
+            });
+
+            // Disable Ctrl+U (View Source)
+            $(document).keydown(function (e) {
+                if (e.ctrlKey && e.keyCode == 85) { // Ctrl+U
+                    return false;
+                }
+            });
+
+
             // Add fixed header on scroll
             $(window).scroll(function () {
                 if ($(window).scrollTop() > 100) {
